@@ -88,7 +88,7 @@ Lean/mathlib foundations:
 [propext, Classical.choice, Quot.sound]
 ```
 
-There are no project-specific assumptions and no incomplete proof placeholders.
+There are no project-specific axioms and no incomplete proof placeholders.
 
 ## Files
 
