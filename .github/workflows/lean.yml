@@ -11,4 +11,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: leanprover/lean-action@v1
         with:
+          build: true
+          nanoda: true
+          nanoda-allow-sorry: false
           use-github-cache: true
