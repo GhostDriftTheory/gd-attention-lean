@@ -2,16 +2,36 @@ name: Lean
 
 on:
   push:
+    branches:
+      - main
   pull_request:
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - uses: leanprover/lean-action@v1
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build and check Lean project
+        uses: leanprover/lean-action@v1
         with:
           build: true
-          nanoda: true
-          nanoda-allow-sorry: false
           use-github-cache: true
+
+      - name: Check for incomplete proofs
+        shell: bash
+        run: |
+          if grep -R -n -E '(^|[[:space:]])(sorry|admit)([[:space:]]|$)' \
+            --include='*.lean' \
+            --exclude-dir='.lake' \
+            .; then
+            echo "Incomplete Lean proof placeholder found."
+            exit 1
+          fi
+
+          echo "No sorry or admit found."
