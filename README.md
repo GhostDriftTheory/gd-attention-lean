@@ -1,5 +1,7 @@
 # gd-attention-lean
 
+[![Lean](https://github.com/GhostDriftTheory/gd-attention-lean/actions/workflows/lean.yml/badge.svg?branch=main)](https://github.com/GhostDriftTheory/gd-attention-lean/actions/workflows/lean.yml)
+
 This repository formalizes a minimal verified kernel of GD-Attention:
 passage geometry, orthogonal rigidity, conditional lifting of axis
 uniqueness, semantic-energy ordering, and deterministic finite-candidate
